@@ -1,5 +1,7 @@
 from PyQt6.QtWidgets import QMainWindow, QVBoxLayout, QWidget, QPushButton, QLineEdit, QGridLayout
 from PyQt6.QtCore import Qt
+from calculator_logic import calculate
+
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -9,7 +11,7 @@ class MainWindow(QMainWindow):
         self.layout = QVBoxLayout()
 
         self.display = QLineEdit()
-        self.display.setReadOnly(True)
+        self.display.setReadOnly(False)
         self.display.setAlignment(Qt.AlignmentFlag.AlignRight)
         self.layout.addWidget(self.display)
 
@@ -36,9 +38,8 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(container)
 
     def on_button_click(self):
-        button = self.sender()  
-        text = button.text()  
-        
+        text = self.sender().text()  
+
         if text == "C":
             self.display.setText("")
            
@@ -46,11 +47,7 @@ class MainWindow(QMainWindow):
             self.display.setText(self.display.text()[:-1])
         
         elif text == "=":
-            try:
-                result = str(eval(self.display.text()))  
-                self.display.setText(result)  
-            except Exception:
-                self.display.setText("Error")  
+            self.display.setText(calculate(self.display.text()))
         
         else:
             self.display.setText(self.display.text() + text)
@@ -68,11 +65,8 @@ class MainWindow(QMainWindow):
             self.display.setText(self.display.text() + ".")
         
         elif key in (Qt.Key.Key_Enter, Qt.Key.Key_Return):
-            try:
-                result = str(eval(self.display.text()))
-                self.display.setText(result)
-            except Exception:
-                self.display.setText("Error")
+            self.display.setText(calculate(self.display.text()))
+
         
         elif key == Qt.Key.Key_Backspace:
             self.display.setText(self.display.text()[:-1])
