@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculator · Pawan Bhattarai</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="topbar">
+    <h1>Calculator</h1>
+    <a href="https://bhattaraipawan.github.io/">&larr; Back to portfolio</a>
+  </div>
+
+  <main class="app-stage">
+    <div class="calc-wrap">
+      <p class="calc-note">A four-function calculator with keyboard support &mdash; a web version of the PyQt6 desktop app.</p>
+
+      <div class="display">
+        <div class="expr" id="expr">&nbsp;</div>
+        <div class="result" id="result">0</div>
+      </div>
+
+      <div class="keys" id="keys">
+        <button class="key fn" data-act="clear">C</button>
+        <button class="key fn" data-act="back">&larr;</button>
+        <button class="key op" data-val="(">(</button>
+        <button class="key op" data-val=")">)</button>
+
+        <button class="key" data-val="7">7</button>
+        <button class="key" data-val="8">8</button>
+        <button class="key" data-val="9">9</button>
+        <button class="key op" data-val="/">&divide;</button>
+
+        <button class="key" data-val="4">4</button>
+        <button class="key" data-val="5">5</button>
+        <button class="key" data-val="6">6</button>
+        <button class="key op" data-val="*">&times;</button>
+
+        <button class="key" data-val="1">1</button>
+        <button class="key" data-val="2">2</button>
+        <button class="key" data-val="3">3</button>
+        <button class="key op" data-val="-">&minus;</button>
+
+        <button class="key" data-val="0">0</button>
+        <button class="key" data-val=".">.</button>
+        <button class="key op" data-val="+">+</button>
+        <button class="key eq" data-act="equals">=</button>
+      </div>
+
+      <p class="hint">Tip: type with your keyboard &mdash; Enter to calculate, Backspace to delete, Esc to clear.</p>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
