@@ -12,5 +12,5 @@ This application supports basic arithmetic operations (`+`, `-`, `*`, `/`) with 
 - **Decimal point support**  
 - **Clear (`C`) and Backspace (`←`) buttons**  
 - **Simple and clean GUI** using PyQt6  
-
+- **Simple and clean Webversion** using HTML, Javascript
 ---
